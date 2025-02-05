@@ -51,10 +51,10 @@ function welcomeGame() {
             // Assign a random sprite to the enemy
             if (Math.floor(Math.random() * 2)) {
                 enemy.classList.add("cat");
-                enemy.src = "/mobile/assets/cat.png";
+                enemy.src = "/cat.png";
             } else {
                 enemy.classList.add("flower");
-                enemy.src = "/mobile/assets/flower.png";
+                enemy.src = "/flower.png";
             }
 
             // Apply the move-left animation
