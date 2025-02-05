@@ -279,6 +279,10 @@ body {
     #main {
         visibility: hidden;
     }
+
+    #replay-modal {
+        opacity: 0;
+    }
 }
 
 /* When in landscape mode */
