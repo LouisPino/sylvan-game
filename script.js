@@ -46,9 +46,12 @@ function welcomeGame() {
             if (Math.floor(Math.random() * 2)) {
                 enemy.classList.add("cat");
                 enemy.src = "https://i1.sndcdn.com/artworks-DF34XUmGTdotYGJ4-96UpXA-t500x500.jpg"
+            }
+            else {
                 enemy.classList.add("flower");
                 enemy.src = "https://e7.pngegg.com/pngimages/930/311/png-clipart-undertale-pixel-art-flowey-flower-bones-miscellaneous-text.png";
             }
+
 
             // Apply the move-left animation
             enemy.style.animation = `moveLeft ${1}s linear`;
