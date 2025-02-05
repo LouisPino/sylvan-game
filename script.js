@@ -16,21 +16,15 @@ function welcomeGame() {
     const scoreEl = document.getElementById("score")
     const charEl = document.getElementById("game-character-sprite")
     const replaybtnEl = [...document.getElementsByClassName("play-again")];
-    const leaderboardModalNameEl = [...document.getElementsByClassName("add-to-leaderboard-modal-type-name")];
-    const defaultLeaderboardHtml = leaderboardModalNameEl[0].innerHTML
     const replayModalEl = document.getElementById("replay-modal")
     const modalScoreEl = document.getElementById("modal-score")
-    const addToLeaderboardBtnEl = document.getElementById("add-to-leaderboard-btn")
     const addToLeaderboardModalEl = document.getElementById("add-to-leaderboard-modal")
-    const addToLeaderboardModalBtnsEl = document.querySelector(".add-to-leaderboard-modal-btns")
-    const submitScoreEl = document.getElementById("submit-score")
 
     //listeners
+    document.addEventListener("keydown", handleKey)
     document.addEventListener('touchstart', handleTouchStart, false);
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     replaybtnEl.forEach((btn) => { btn.addEventListener("click", startGame) })
-    submitScoreEl.addEventListener("click", submitScore)
-    addToLeaderboardBtnEl.addEventListener("click", addToLeaderboard)
     charEl.addEventListener("click", toggleCharacterSrc)
 
     //enemies
@@ -51,10 +45,10 @@ function welcomeGame() {
             // Assign a random sprite to the enemy
             if (Math.floor(Math.random() * 2)) {
                 enemy.classList.add("cat");
-                enemy.src = "https://i1.sndcdn.com/artworks-DF34XUmGTdotYGJ4-96UpXA-t500x500.jpg";
+                enemy.src = "/mobile/assets/cat.png";
             } else {
                 enemy.classList.add("flower");
-                enemy.src = "https://e7.pngegg.com/pngimages/930/311/png-clipart-undertale-pixel-art-flowey-flower-bones-miscellaneous-text.png";
+                enemy.src = "/mobile/assets/flower.png";
             }
 
             // Apply the move-left animation
@@ -131,6 +125,16 @@ function welcomeGame() {
 
 
     //events
+
+    function handleKey(e) {
+        console.log(e.key)
+        if (e.key === "ArrowUp") {
+            handleSwipe("up")
+        } else if (e.key === "ArrowDown") {
+            handleSwipe("down")
+
+        }
+    }
     function collision() {
         enemyEls.forEach((el) => {
             el.remove();
@@ -223,29 +227,6 @@ function welcomeGame() {
         // Trigger reflow to restart animation
         void element.offsetWidth;
         element.classList.add(animationClass);  // Add new animation class
-    }
-
-    //leaderboard
-    function addToLeaderboard() {
-        leaderboardModalNameEl[0].innerHTML = defaultLeaderboardHtml
-        addToLeaderboardModalBtnsEl.appendChild(submitScoreEl)
-        submitScoreEl.addEventListener("click", submitScore)
-        replayModalEl.style.visibility = "hidden"
-        addToLeaderboardModalEl.style.visibility = "visible"
-    }
-
-    function submitScore() {
-        const badWords = ["ASS", "COK", "FAG", "FCK", "CUM", "TIT", "KKK", "IDF", "NIG", "NGR", "SEX"];
-        const inputEl = document.getElementById("score-letter-4")
-        let nameStr = inputEl.value.toUpperCase()
-        // let nameStr = (inputEls[0].value + inputEls[1].value + inputEls[2].value).toUpperCase()
-        submitScoreEl.remove()
-        if (badWords.includes(nameStr)) {
-            nameStr = "BOO"
-            alert("I can't read but this word doesn't shine and sparkle with the council")
-            return
-        }
-        leaderboardModalNameEl[0].innerHTML = "Thanks!"
     }
 }
 
