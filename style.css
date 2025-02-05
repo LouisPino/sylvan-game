@@ -271,7 +271,7 @@ body {
 }
 
 /* When in portrait mode */
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 700px) and (orientation: portrait) {
     .landscape-required {
         display: block;
     }
@@ -282,7 +282,7 @@ body {
 }
 
 /* When in landscape mode */
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (orientation: landscape) {
 
     .landscape-required {
         display: none;
