@@ -45,10 +45,9 @@ function welcomeGame() {
             // Assign a random sprite to the enemy
             if (Math.floor(Math.random() * 2)) {
                 enemy.classList.add("cat");
-                enemy.src = "/mobile/assets/cat.png";
-            } else {
+                enemy.src = "https://i1.sndcdn.com/artworks-DF34XUmGTdotYGJ4-96UpXA-t500x500.jpg"
                 enemy.classList.add("flower");
-                enemy.src = "/mobile/assets/flower.png";
+                enemy.src = "https://e7.pngegg.com/pngimages/930/311/png-clipart-undertale-pixel-art-flowey-flower-bones-miscellaneous-text.png";
             }
 
             // Apply the move-left animation
