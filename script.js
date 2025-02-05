@@ -7,8 +7,11 @@ function welcomeGame() {
     const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
     let spriteCtr = 1
     let enemyGenTime = 1000
-    var xDown = null;
-    var yDown = null;
+    let audioPlaying = false
+    const audio = new Audio('sylvan-game.wav');
+
+
+
 
 
     //elements
@@ -19,6 +22,7 @@ function welcomeGame() {
     const replayModalEl = document.getElementById("replay-modal")
     const modalScoreEl = document.getElementById("modal-score")
     const addToLeaderboardModalEl = document.getElementById("add-to-leaderboard-modal")
+    const audioBtnEl = document.getElementById("audio-btn")
 
     //listeners
     document.addEventListener("keydown", handleKey)
@@ -26,6 +30,25 @@ function welcomeGame() {
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     replaybtnEl.forEach((btn) => { btn.addEventListener("click", startGame) })
     charEl.addEventListener("click", toggleCharacterSrc)
+    audioBtnEl.addEventListener("click", toggleAudio)
+
+    //audio
+    function toggleAudio() {
+        if (audioPlaying) {
+            audioPlaying = false
+            audio.pause()
+            audioBtnEl.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS49Jn2LHracg8eQTJn6MWx9V39QfA9rqmZwg&s"
+        } else {
+            audioPlaying = true
+            audioBtnEl.src = "https://static.vecteezy.com/system/resources/thumbnails/003/611/449/small/do-not-make-a-loud-noise-no-speaker-no-sound-icon-free-vector.jpg"
+            audio.loop = true;
+            audio.play().then(() => {
+                console.log('Audio started playing on loop.');
+            }).catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        }
+    }
 
     //enemies
     class Enemy {
