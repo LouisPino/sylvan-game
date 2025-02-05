@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+    <title>The Sylvan Legacy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="text/javascript" defer></script>
+</head>
+
+<body id="body">
+    <div class="landscape-required">
+        Please rotate your phone to landscape mode for the best experience.
+    </div>
+    <div id="main">
+        <!-- <h2 class="game-title">The Sylvan Legacy</h2> -->
+        <div id="game-box">
+            <p id="score">0</p>
+            <img class="game-bg" src="/mobile/assets/bgForestGif.gif" />
+            <img id="game-character-sprite"
+                src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif" />
+        </div>
+        <div id="replay-modal">
+            <h1 id="modal-score"></h1>
+            <button class="play-again">Play Again?</button>
+            <button id="add-to-leaderboard-btn">Add score to leaderboard?</button>
+        </div>
+
+        <div id="add-to-leaderboard-modal">
+            <div class="add-to-leaderboard-modal-type-name">
+                <input type="text" maxlength="3" id="score-letter-4" class="score-letter"> </input>
+            </div>
+            <div class="add-to-leaderboard-modal-btns">
+                <button id="submit-score">Submit Score!</button>
+                <button class="play-again">Play Again?</button>
+            </div>
+        </div>
+        <p id="welcome-p">
+            Swipe up to jump,<br>
+            Swipe down to dodge,<br />
+            Tap to change character<br />
+        </p>
+    </div>
+
+</body>
+
+</html>

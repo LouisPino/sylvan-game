@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#main {}
+
+#choice-1 {
+    background-color: var(--sylvan-lavender);
+}
+
+button {
+    border-radius: 0;
+    color: black;
+    background-color: white;
+    font-family: "Press Start 2P", serif;
+}
+
+#choice-2 {
+    background-color: red;
+}
+
+.text-body {
+    border: 2px solid purple;
+    min-height: 200px;
+}
+
+html,
+body {
+    /* touch-action: manipulation; */
+    font-family: "Press Start 2P", serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+}
+
+.btn {
+    height: 100px;
+    width: 100px;
+}
+
+#blue-btn {
+    display: none;
+    background-color: blue;
+}
+
+.skin-choices {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.skin-choice {
+    width: 100px;
+}
+
+.skin-winner {
+    transition: 800ms;
+    width: 800px;
+}
+
+.bg-mobile {
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.vote-prompt {
+    color: blue;
+    border: 2px solid red;
+    background-color: yellow;
+}
+
+.enemy {
+    width: 50px;
+    height: 50px;
+    right: -50px;
+    position: absolute
+}
+
+.cat {
+    bottom: 0
+}
+
+.flower {
+    height: 75px;
+    top: 0;
+    rotate: 180deg;
+    z-index: 100;
+}
+
+#game-box {
+    height: 60vh;
+    left: 0;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    /* background-color: green; */
+    /* border: 1px solid red */
+}
+
+.game-bg {
+    width: 100%;
+    height: 100%;
+}
+
+#game-character-sprite {
+    position: absolute;
+    left: 5%;
+    width: 20%;
+    height: 90%;
+    bottom: 0;
+}
+
+#score {
+    position: absolute;
+    top: -16px;
+    right: 14px;
+    min-width: 25px;
+    min-height: fit-content;
+    padding: 4px 0;
+    background-color: white;
+    z-index: 20;
+    text-align: center;
+}
+
+.game-title {
+    height: 10vh;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+
+}
+
+/* Jump Animation: Up and then Down over 0.5s */
+@keyframes jumpAnimation {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    /* Adjust jump height */
+    100% {
+        bottom: 0;
+    }
+}
+
+/* Dive Animation: Down and then Up over 0.5s */
+@keyframes diveAnimation {
+    0% {
+        bottom: 0;
+    }
+
+    /* Start from a higher position */
+    50% {
+        bottom: -200px;
+    }
+
+    /* Dive down */
+    100% {
+        bottom: 0;
+    }
+}
+
+
+@keyframes moveLeft {
+    from {
+        left: 100%;
+        /* Start off the screen on the right */
+    }
+
+    to {
+        left: -50px;
+        /* Move to the left and off the screen */
+    }
+}
+
+.jump {
+    animation: jumpAnimation 0.7s ease-in-out;
+}
+
+.dive {
+    animation: diveAnimation 0.7s ease-in-out;
+}
+
+.game-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+
+
+#replay-modal {
+    visibility: hidden;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    height: 40vh;
+    top: 20vh;
+    background-color: purple;
+    border: 3px solid black;
+    z-index: 50;
+    text-align: center;
+}
+
+#add-to-leaderboard-btn {
+    margin-top: 8px;
+}
+
+#add-to-leaderboard-modal {
+    visibility: hidden;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    height: 40vh;
+    top: 20vh;
+    background-color: aliceblue;
+    border: 3px solid black;
+    z-index: 50;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.add-to-leaderboard-modal-btns {
+    display: flex;
+    justify-content: center;
+}
+
+.add-to-leaderboard-modal-btns button {
+    padding: 8px;
+    margin-left: 8px
+}
+
+.add-to-leaderboard-modal-type-name {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    /* border: 1px solid purple; */
+    margin-top: 20px;
+    width: 40%;
+    padding: 8px;
+    border: 3px solid black;
+    background-color: white;
+    position: relative;
+}
+
+.score-letter {
+    font-family: "Press Start 2P", serif;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 20px;
+}
+
+#score-letter-4 {
+    width: 50%;
+    letter-spacing: 2vw;
+    text-align: center;
+}
+
+/* When in portrait mode */
+@media only screen and (orientation: portrait) {
+    .landscape-required {
+        display: block;
+    }
+
+    #main {
+        visibility: hidden;
+    }
+}
+
+/* When in landscape mode */
+@media only screen and (orientation: landscape) {
+    .landscape-required {
+        display: none;
+    }
+
+    #main {
+        visibility: visible;
+    }
+}
