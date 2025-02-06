@@ -299,7 +299,6 @@ body {
 
 /* When in landscape mode */
 @media only screen and (orientation: landscape) {
-
     .landscape-required {
         display: none;
     }
