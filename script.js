@@ -6,7 +6,7 @@ function welcomeGame() {
     let enemyEls = []
     const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
     let spriteCtr = 1
-    let enemyGenTime = 1000
+    let enemyGenTimeMin = 1200
     let audioPlaying = false
     const audio = new Audio('sylvan-game.wav');
 
@@ -129,7 +129,10 @@ function welcomeGame() {
     function generateEnemies() {
         if (gameRunning === false) return; // Stop if location changes
 
-        enemyGenTime = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
+        enemyGenTime = Math.floor(Math.random() * (700)) + enemyGenTimeMin;
+        if (enemyGenTimeMin > 350) {
+            enemyGenTimeMin -= 10
+        }
         enemyInstance.enemyCreate()
         // Call this function again after enemyGenTime milliseconds
         setTimeout(generateEnemies, enemyGenTime);
