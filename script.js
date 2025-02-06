@@ -37,10 +37,10 @@ function welcomeGame() {
         if (audioPlaying) {
             audioPlaying = false
             audio.pause()
-            audioBtnEl.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS49Jn2LHracg8eQTJn6MWx9V39QfA9rqmZwg&s"
+            audioBtnEl.src = "https://static.vecteezy.com/system/resources/thumbnails/003/611/449/small/do-not-make-a-loud-noise-no-speaker-no-sound-icon-free-vector.jpg"
         } else {
             audioPlaying = true
-            audioBtnEl.src = "https://static.vecteezy.com/system/resources/thumbnails/003/611/449/small/do-not-make-a-loud-noise-no-speaker-no-sound-icon-free-vector.jpg"
+            audioBtnEl.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS49Jn2LHracg8eQTJn6MWx9V39QfA9rqmZwg&s"
             audio.loop = true;
             audio.play().then(() => {
                 console.log('Audio started playing on loop.');
