@@ -6,7 +6,8 @@ function welcomeGame() {
     let enemyEls = []
     const sprites = ["https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzRndnZiMmM2MWN6MnFod2VpcjZ5d3UxcmVsZTB0YjluZjVwcTQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LtFo9eDzBUtbyK74E5/giphy.gif", "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJna3I0ZXd4cjZuemoweGV6YnJ3NDZqY3Fqb2htMmRpNjNpazl4MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xwsp8g4MIrK5G/giphy.gif", "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWpkczB3NjlxcGlpdmdvYXJyMTk4OHoxcnJpaXpoaDgybXI5eXN2eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zg0wrBuqsQG72sRByD/giphy.gif"]
     let spriteCtr = 1
-    let enemyGenTimeMin = 1200
+    const enemyGenTimeMinDefault = 1200
+    let enemyGenTimeMin = enemyGenTimeMinDefault
     let audioPlaying = false
     const audio = new Audio('sylvan-game.wav');
 
@@ -172,6 +173,7 @@ function welcomeGame() {
     }
 
     function startGame() {
+        enemyGenTimeMin = enemyGenTimeMinDefault
         replayModalEl.style.visibility = "hidden"
         addToLeaderboardModalEl.style.visibility = "hidden"
         changeScore(0)  // Reset the score or whatever logic you need
